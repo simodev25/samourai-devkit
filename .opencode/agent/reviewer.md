@@ -43,6 +43,10 @@ Two modes, one review process.
 - Neither: if change artifacts exist for current branch → local mode; else check for open PR/MR → remote mode
 </modes>
 
+<boundary>
+**@reviewer vs @code-reviewer**: This agent (`@reviewer`) performs full change compliance review (spec + plan + code quality + test coverage). For targeted code quality analysis on a specific diff without spec/plan context, use `@code-reviewer` instead.
+</boundary>
+
 <inputs>
   <invocation>
   User/agent message text. Treat like CLI args:

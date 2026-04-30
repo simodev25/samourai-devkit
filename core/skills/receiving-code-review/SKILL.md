@@ -11,6 +11,25 @@ Code review requires technical evaluation, not emotional performance.
 
 **Core principle:** Verify before implementing. Ask before assuming. Technical correctness over social comfort.
 
+## Inputs
+
+- Review feedback items (human partner and/or external reviewers)
+- Current implementation context (code, tests, constraints)
+- Clarifications for any ambiguous review comments
+- Architectural or product decisions that may override suggestions
+
+## Outputs
+
+- Technically grounded response plan per review item
+- Implemented fixes (or explicit pushback) backed by codebase evidence
+- Verification evidence showing changes are correct and non-regressive
+
+## Output Format
+
+- Itemized disposition: accepted/rejected/deferred with rationale and evidence
+- For accepted items: changed files and verification summary
+- For rejected items: concise technical justification and open question if needed
+
 ## The Response Pattern
 
 ```
@@ -211,3 +230,10 @@ When replying to inline review comments on GitHub, reply in the comment thread (
 Verify. Question. Then implement.
 
 No performative agreement. Technical rigor always.
+
+## Acceptance Criteria
+
+- All unclear feedback items were clarified before implementation started
+- Each implemented change was verified against codebase reality and tested
+- Responses avoid performative agreement and focus on technical substance
+- Rejections or pushback include explicit, evidence-based technical reasoning

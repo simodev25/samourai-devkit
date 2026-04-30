@@ -8,7 +8,7 @@
 
 # 🧭 Quick Navigation
 
-- 📘 User guide: [docs/guide-utilisateur-fr.md](docs/guide-utilisateur-fr.md)
+- 📘 User guide: [docs/user-guide.md](docs/user-guide.md)
 - 🧱 Templates: [core/templates/README.md](core/templates/README.md)
 - 🏗️ Project onboarding: [core/governance/conventions/onboarding-existing-project.md](core/governance/conventions/onboarding-existing-project.md)
 - 🔁 Lifecycle: [core/governance/conventions/change-lifecycle.md](core/governance/conventions/change-lifecycle.md)
@@ -253,7 +253,7 @@ Samourai Devkit enables:
 
 # 📘 Getting Started (official documentation)
 
-1. Read: [docs/guide-utilisateur-fr.md](docs/guide-utilisateur-fr.md)
+1. Read: [docs/user-guide.md](docs/user-guide.md)
 2. Read: [core/governance/conventions/onboarding-existing-project.md](core/governance/conventions/onboarding-existing-project.md)
 3. Read: [core/governance/conventions/change-lifecycle.md](core/governance/conventions/change-lifecycle.md)
 4. Refer to: [core/templates/README.md](core/templates/README.md)

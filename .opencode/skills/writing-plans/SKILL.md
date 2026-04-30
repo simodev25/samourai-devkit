@@ -18,6 +18,24 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 **Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
 - (User preferences for plan location override this default)
 
+## Inputs
+
+- Approved spec or clear requirements to implement
+- Current codebase structure and established project patterns
+- Constraints on scope, timeline, and testing expectations
+- Preferred output path (if overriding default plan location)
+
+## Outputs
+
+- A complete, step-by-step implementation plan with task checklists
+- Concrete file-level change map (create/modify/test targets)
+- Execution handoff options with next-step guidance
+
+## Output Format
+
+- Markdown plan file with required header and task sections using checkbox steps
+- Each task includes exact paths, concrete code/commands, and expected outcomes
+
 ## Scope Check
 
 If the spec covers multiple independent subsystems, it should have been broken into sub-project specs during brainstorming. If it wasn't, suggest breaking this into separate plans — one per subsystem. Each plan should produce working, testable software on its own.
@@ -150,3 +168,10 @@ After saving the plan, offer execution choice:
 **If Inline Execution chosen:**
 - **REQUIRED SUB-SKILL:** Use superpowers:executing-plans
 - Batch execution with checkpoints for review
+
+## Acceptance Criteria
+
+- Plan includes all required structural sections and follows the documented task template
+- Every requirement from the source spec is mapped to at least one concrete task
+- No placeholders remain; code-affecting steps include concrete code and commands
+- Execution handoff is explicit, with clear next-step options for implementation

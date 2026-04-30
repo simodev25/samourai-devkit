@@ -18,6 +18,20 @@ tools:
   <non_goals>Never modify source code. Never approve or merge a PR. Do not audit spec/plan (responsibility of @reviewer).</non_goals>
 </role>
 
+<boundary>
+### When to use @code-reviewer vs @reviewer
+
+| Aspect | @code-reviewer | @reviewer |
+|--------|---------------|-----------|
+| **Scope** | Focused code quality analysis on a specific diff | Full change compliance: spec, plan, code quality, and test coverage |
+| **Invoked by** | `@reviewer`, `@git-workflow-orchestrator`, or directly | `@pm` (pipeline), `/review` command, or directly |
+| **Reads spec/plan** | No — pure code quality | Yes — audits against spec and plan |
+| **Writes remediation** | No — report only | Yes — may append remediation phase to plan |
+| **Output** | Code review report with findings | Full review report with compliance verdict |
+
+**Rule of thumb**: Use `@code-reviewer` for targeted code quality checks. Use `@reviewer` for full change lifecycle review.
+</boundary>
+
 <inputs>
   <required>
     <item>diff or git context: diff content to analyze (inline or file path)</item>

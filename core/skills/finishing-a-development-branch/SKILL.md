@@ -11,6 +11,24 @@ Guide completion of development work by presenting clear options and handling ch
 
 **Core principle:** Verify tests → Present options → Execute choice → Clean up.
 
+## Inputs
+
+- Current branch state (branch name, divergence, working tree status)
+- Verification evidence (test command and latest results)
+- Base branch target for integration
+- User-selected completion option (merge, PR, keep, discard)
+
+## Outputs
+
+- Executed branch-completion workflow aligned with selected option
+- Clear status report of branch/worktree outcome
+- Any generated merge/push/PR artifacts and cleanup actions
+
+## Output Format
+
+- Final summary stating: selected option, commands executed, resulting branch state, and cleanup state
+- If blocked, explicit blocker and required user decision
+
 **Announce at start:** "I'm using the finishing-a-development-branch skill to complete this work."
 
 ## The Process
@@ -198,3 +216,10 @@ git worktree remove <worktree-path>
 
 **Pairs with:**
 - **using-git-worktrees** - Cleans up worktree created by that skill
+
+## Acceptance Criteria
+
+- Tests were verified before options were presented
+- Exactly the four documented options were presented to the user
+- Only the chosen option was executed, with required confirmation for discard
+- Final branch/worktree state was reported clearly and matches executed workflow

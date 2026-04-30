@@ -11,6 +11,24 @@ Enforce la discipline Test-Driven Development dans le pipeline Samourai. Garanti
 Ne jamais écrire du code de production avant qu'un test en échec existe pour la fonctionnalité. Toute tâche d'implémentation commence par un test rouge.
 </HARD-GATE>
 
+## Inputs
+
+- `workItemRef` actif et tâches d'implémentation à exécuter
+- Test plan associé (`chg-<workItemRef>-test-plan.md`)
+- Contexte de code impacté et comportements attendus
+- Résultats de tests (RED/GREEN) pour chaque cycle
+
+## Outputs
+
+- Cycles TDD tracés par tâche (RED → GREEN → REFACTOR)
+- Tests ajoutés/ajustés avant code de production
+- Évidence de validation (tests verts, couverture, absence de régression)
+
+## Output Format
+
+- Journal de cycle par tâche : test écrit, échec attendu, fix minimal, refactor, preuve de passage
+- Statut final par tâche : DONE | BLOCKED avec preuve de tests
+
 ## Activation dans Samourai
 
 Activé automatiquement lors de :
@@ -154,3 +172,21 @@ Un cycle TDD est complet quand :
 | `@reviewer` | Vérifie que RED a bien précédé GREEN |
 | `@runner` | Exécute la suite de tests complète |
 | `@fixer` | Répare les tests cassés en mode root-cause |
+
+## Acceptance Criteria
+
+- Chaque tâche commence par un test RED vérifié pour la bonne raison
+- Le code GREEN reste minimal et limité au comportement testé
+- Le refactor conserve tous les tests au vert sans régression
+- Les preuves (résultats tests/couverture/commit) sont traçables pour chaque cycle
+
+## Relationship to test-driven-development skill
+
+| Aspect | tdd-orchestrator | test-driven-development |
+|--------|-----------------|------------------------|
+| **Purpose** | Pipeline integration — orchestrates TDD within `/run-plan` delivery | Developer discipline — teaches and enforces TDD principles |
+| **Scope** | Multi-task orchestration across plan phases | Single task/feature TDD cycle |
+| **Used by** | `@coder` during `/run-plan` execution | Any agent implementing code |
+| **Coordinates** | `@coder`, `@fixer`, `@committer` agents | Self-contained, no agent coordination |
+
+**When to use which**: Use `tdd-orchestrator` when executing plan phases in the Samourai pipeline. Use `test-driven-development` when implementing any code change (standalone or within a plan phase).

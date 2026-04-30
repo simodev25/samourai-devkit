@@ -7,6 +7,24 @@ description: "Use when @pm orchestre plusieurs agents en parallèle ou en séque
 
 Patterns de coordination multi-agents pour le pipeline Samourai. Fournit les techniques de handoff, gestion de contexte et parallélisation entre agents.
 
+## Inputs
+
+- Référence du change (`workItemRef`) et phase en cours
+- État des artefacts disponibles (spec, plan, test-plan, pm-notes)
+- Dépendances entre tâches (parallèle possible vs séquentiel requis)
+- Critères de succès attendus pour chaque délégation
+
+## Outputs
+
+- Plan de délégation clair (agents, ordre, parallélisation)
+- Handoffs structurés avec contexte complet par agent
+- État de coordination mis à jour avec décisions, blocages, et reprises
+
+## Output Format
+
+- Rapport de délégation par phase : agent ciblé, objectif, prérequis, critères de succès
+- Statut consolidé : PASS/FAIL/BLOCKED/PARTIAL avec action de continuation
+
 ## Activation dans Samourai
 
 Activé automatiquement par `@pm` lors de :
@@ -142,3 +160,10 @@ Phase 8 (quality gates) :
   → @runner (parallel si plusieurs suites)
   → si FAIL → @fixer → @runner (re-run)
 ```
+
+## Acceptance Criteria
+
+- Chaque délégation contient un bloc de contexte structuré complet
+- Les tâches dépendantes sont exécutées en séquentiel, les indépendantes en parallèle
+- Les boucles review/fix respectent une passe complète par itération avec limite d'escalade
+- L'état de coordination est traçable et synchronisé dans les artefacts prévus

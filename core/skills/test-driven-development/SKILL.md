@@ -11,6 +11,24 @@ Write the test first. Watch it fail. Write minimal code to pass.
 
 **Core principle:** If you didn't watch the test fail, you don't know if it tests the right thing.
 
+## Inputs
+
+- Requirement, bug report, or behavior change to implement
+- Target code location and relevant existing tests
+- Test framework/tooling commands for the repository
+- Constraints or acceptance expectations from spec/plan
+
+## Outputs
+
+- Failing test(s) that define expected behavior before implementation
+- Minimal production code changes that make tests pass
+- Verification evidence across red, green, and post-refactor states
+
+## Output Format
+
+- Cycle log per behavior: RED evidence, GREEN evidence, refactor note
+- Final verification summary: tests run, pass/fail counts, remaining gaps
+
 **Violating the letter of the rules is violating the spirit of the rules.**
 
 ## When to Use
@@ -369,3 +387,14 @@ Otherwise → not TDD
 ```
 
 No exceptions without your human partner's permission.
+
+## Acceptance Criteria
+
+- For each behavior change, a test was written and observed failing before code changes
+- Implementation remained minimal and directly tied to the failing test intent
+- Refactor steps preserved green test status throughout
+- Final report contains explicit evidence for RED and GREEN verification
+
+## Relationship to tdd-orchestrator skill
+
+This skill teaches TDD discipline for any code change. For pipeline-level TDD orchestration across multiple plan phases (coordinating agents and commits), see the `tdd-orchestrator` skill.
