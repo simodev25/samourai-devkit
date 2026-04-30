@@ -33,8 +33,8 @@ Examples:
 6. During interview, ask language selection first (French or English), lock it in state, then continue.
 7. Follow the multi-session workflow:
    scan → assess → interview → mcp-setup → draft → review → write.
-8. MCP setup phase : détecter les outils disponibles, poser les questions ciblées,
-   activer les MCP pertinents dans `.opencode/opencode.jsonc`.
+8. MCP setup phase: detect available tools, ask targeted questions,
+   enable the relevant MCPs in `.opencode/opencode.jsonc`.
 </process>
 
 <notes>
