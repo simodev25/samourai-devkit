@@ -8,18 +8,18 @@ objectives:
 
 severity:
   major:
-    meaning: "Bloque la livraison"
+    meaning: "Blocks delivery"
     examples:
       - acceptance_criteria_not_met
       - security_or_data_integrity_risk
       - failing_required_tests
   minor:
-    meaning: "Doit être traité avant clôture si impact fonctionnel"
+    meaning: "Must be addressed before closure if there is a functional impact"
     examples:
       - missing_test_coverage_on_changed_path
       - incomplete_error_handling
   nit:
-    meaning: "Amélioration non bloquante"
+    meaning: "Non-blocking improvement"
     examples:
       - naming_or_readability
       - small_doc_gap

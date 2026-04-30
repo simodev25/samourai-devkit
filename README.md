@@ -6,66 +6,66 @@
 
 ---
 
-# 🧭 Navigation rapide
+# 🧭 Quick Navigation
 
-- 📘 Guide utilisateur : [docs/guide-utilisateur-fr.md](docs/guide-utilisateur-fr.md)
-- 🧱 Templates : [core/templates/README.md](core/templates/README.md)
-- 🏗️ Onboarding projet : [core/governance/conventions/onboarding-existing-project.md](core/governance/conventions/onboarding-existing-project.md)
-- 🔁 Lifecycle : [core/governance/conventions/change-lifecycle.md](core/governance/conventions/change-lifecycle.md)
-- 🤖 Agents & commandes : [core/governance/conventions/opencode-agents-and-commands-guide.md](core/governance/conventions/opencode-agents-and-commands-guide.md)
-
----
-
-# 🧭 Positionnement
-
-Samourai Devkit est un **AI Development Operating System** permettant de transformer un dépôt Git en environnement de développement structuré, piloté par agents IA spécialisés.
+- 📘 User guide: [docs/guide-utilisateur-fr.md](docs/guide-utilisateur-fr.md)
+- 🧱 Templates: [core/templates/README.md](core/templates/README.md)
+- 🏗️ Project onboarding: [core/governance/conventions/onboarding-existing-project.md](core/governance/conventions/onboarding-existing-project.md)
+- 🔁 Lifecycle: [core/governance/conventions/change-lifecycle.md](core/governance/conventions/change-lifecycle.md)
+- 🤖 Agents & commands: [core/governance/conventions/opencode-agents-and-commands-guide.md](core/governance/conventions/opencode-agents-and-commands-guide.md)
 
 ---
 
-# 🎯 Problématique adressée
+# 🧭 Positioning
 
-Le développement assisté par IA souffre de :
+Samourai Devkit is an **AI Development Operating System** that transforms a Git repository into a structured development environment driven by specialized AI agents.
 
-- variabilité des outputs  
-- absence de structuration des workflows  
-- duplication des prompts  
-- absence de gouvernance  
+---
 
-Samourai Devkit apporte :
+# 🎯 Problem Statement
 
-- ✅ Un workflow déterministe
-- ✅ Des agents spécialisés et orchestrés
-- ✅ Une gouvernance intégrée
-- ✅ Une standardisation via blueprints
+AI-assisted development suffers from:
+
+- unpredictable output quality
+- lack of workflow structure
+- duplicated prompts
+- absence of governance
+
+Samourai Devkit provides:
+
+- ✅ A deterministic workflow
+- ✅ Specialized, orchestrated agents
+- ✅ Built-in governance
+- ✅ Standardization via blueprints
 
 ---
 ---
 
-## 🔁 Workflow standard
+## 🔁 Standard Workflow
 
-1. Cadrage → `/plan-change`
-2. Spécification → `/write-spec`
+1. Scoping → `/plan-change`
+2. Specification → `/write-spec`
 3. Test design → `/write-test-plan`
-4. Implémentation → `/run-plan`
-5. Revue → `/review`
-6. Vérification → `/check`
+4. Implementation → `/run-plan`
+5. Review → `/review`
+6. Verification → `/check`
 7. Documentation → `/sync-docs`
-8. Livraison → `/commit` → `/pr`
+8. Delivery → `/commit` → `/pr`
 
 ---
 
-# 🧩 Blueprints (élément structurant)
+# 🧩 Blueprints (Structural Element)
 
-Les blueprints permettent de standardiser :
+Blueprints provide standardization for:
 
 - workflows
 - documents
-- comportements des agents
-- stratégies de test et review
+- agent behavior
+- test and review strategies
 
-### Utilisation
+### Usage
 
-Les blueprints sont automatiquement exploités par :
+Blueprints are automatically used by:
 
 - `/bootstrap`
 - `/write-spec`
@@ -73,105 +73,106 @@ Les blueprints sont automatiquement exploités par :
 - `/pr`
 - `@toolsmith`
 
-👉 Ils permettent d’industrialiser l’usage des agents et de réduire la variabilité.
+👉 They industrialize agent usage and reduce output variability.
 
 ---
 
 # 🏗️ Architecture
 
-1. Interaction  
-2. Orchestration  
-3. Agents  
-4. Skills / Tools  
-5. Context / Memory  
-6. Gouvernance  
+1. Interaction
+2. Orchestration
+3. Agents
+4. Skills / Tools
+5. Context / Memory
+6. Governance
 
 ---
 
-## ⚙️ Installation rapide
+## ⚙️ Quick Install
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/FR-PAR-SAMOUR-AI/samourai-devkit/main/scripts/install-remote.sh | bash -s -- --target /path/to/project
 ```
 
-### Installation locale après git clone
+### Local installation after git clone
 
-Pour garder une copie locale du kit, cloner le dépôt puis lancer le script
-d'installation depuis cette copie:
+To keep a local copy of the kit, clone the repository then run the install
+script from that copy:
 
 ```bash
 git clone https://github.com/FR-PAR-SAMOUR-AI/samourai-devkit.git
 cd samourai-devkit
-./scripts/install-samourai.sh --target /chemin/vers/mon-projet
+./scripts/install-samourai.sh --target /path/to/my-project
 ```
 
-Le chemin passé à `--target` doit pointer vers le projet Git dans lequel
-installer Samourai Devkit, pas vers le dépôt `samourai-devkit` lui-même.
+The path passed to `--target` must point to the Git project into which
+Samourai Devkit should be installed, not to the `samourai-devkit` repository
+itself.
 
-### Installation guidée
+### Guided installation
 
 ```bash
 ./scripts/install-samourai.sh --interactive
 ```
 
 
-### Installation dans un projet local
+### Installation into a local project
 
-Depuis ce repo:
+From this repo:
 
 ```bash
-./scripts/install-samourai.sh --target /chemin/vers/mon-projet
+./scripts/install-samourai.sh --target /path/to/my-project
 ```
 ---
-Options utiles:
+Useful options:
 
 ```bash
-./scripts/install-samourai.sh --target /chemin/projet --dry-run
-./scripts/install-samourai.sh --target /chemin/projet --force
-./scripts/install-samourai.sh --target /chemin/projet --skip-opencode
-./scripts/install-samourai.sh --target /chemin/projet --editor opencode
-./scripts/install-samourai.sh --target /chemin/projet --editor vscode
-./scripts/install-samourai.sh --target /chemin/projet --editor opencode,vscode
-./scripts/install-samourai.sh --target /chemin/projet --editor all
-./scripts/install-samourai.sh --target /chemin/projet --symlink-stack
+./scripts/install-samourai.sh --target /path/to/project --dry-run
+./scripts/install-samourai.sh --target /path/to/project --force
+./scripts/install-samourai.sh --target /path/to/project --skip-opencode
+./scripts/install-samourai.sh --target /path/to/project --editor opencode
+./scripts/install-samourai.sh --target /path/to/project --editor vscode
+./scripts/install-samourai.sh --target /path/to/project --editor opencode,vscode
+./scripts/install-samourai.sh --target /path/to/project --editor all
+./scripts/install-samourai.sh --target /path/to/project --symlink-stack
 
 ```
 
-### Installation avec stack séparée par symlinks
+### Symlink-stack installation
 
-Pour garder `.opencode`, `.samourai` et `AGENTS.md` hors du dépôt client tout
-en les rendant visibles par OpenCode, utiliser:
+To keep `.opencode`, `.samourai` and `AGENTS.md` outside the client repository
+while still making them visible to OpenCode, use:
 
 ```bash
-./scripts/install-samourai.sh --target /chemin/vers/projet-client --symlink-stack
+./scripts/install-samourai.sh --target /path/to/client-project --symlink-stack
 ```
 
-Le script installe la stack dans un dossier frère nommé:
+The script installs the stack into a sibling folder named:
 
 ```text
-/chemin/vers/projet-client-samurai
+/path/to/client-project-samurai
 ```
 
-Puis il crée des liens symboliques dans le projet client. `AGENTS.md` est lié
-uniquement s'il existe déjà ou s'il a été migré vers la stack:
+It then creates symbolic links inside the client project. `AGENTS.md` is linked
+only if it already exists or has been migrated to the stack:
 
 ```text
-.opencode -> ../projet-client-samurai/.opencode
-.samourai -> ../projet-client-samurai/.samourai
-AGENTS.md -> ../projet-client-samurai/AGENTS.md
+.opencode -> ../client-project-samurai/.opencode
+.samourai -> ../client-project-samurai/.samourai
+AGENTS.md -> ../client-project-samurai/AGENTS.md
 ```
 
-Les liens sont ajoutés à `.git/info/exclude`, donc ils restent locaux au clone
-et ne sont pas proposés au commit dans le dépôt client. La stack peut être
-versionnée et poussée depuis le dépôt `projet-client-samurai`.
+The links are added to `.git/info/exclude`, so they remain local to the clone
+and are not proposed for commit in the client repository. The stack can be
+versioned and pushed from the `client-project-samurai` repository.
 
-## Désinstaller le kit
+## Uninstalling the kit
 
 ```bash
-./scripts/uninstall-samourai.sh --target /chemin/vers/mon-projet
+./scripts/uninstall-samourai.sh --target /path/to/my-project
 ```
 
-Adapter OpenCode:
+OpenCode adapter:
 
 - `.opencode/README.md`
 - `.opencode/.gitignore`
@@ -181,7 +182,7 @@ Adapter OpenCode:
 - `.opencode/skills/*/SKILL.md`
 - `.opencode/skills/project/README.md`
 
-Adapter VS Code/GitHub Copilot:
+VS Code/GitHub Copilot adapter:
 
 - `.github/copilot-instructions.md`
 - `.github/agents/*.agent.md`
@@ -191,17 +192,17 @@ Adapter VS Code/GitHub Copilot:
 - `.vscode/mcp.json`
 - `.vscode/settings.json`
 
-## ⚡ Quick start (2 min)
+## ⚡ Quick Start (2 min)
 
-1. Installer le kit
-2. Ouvrir le projet dans OpenCode ou VS Code
-3. Lancer :
+1. Install the kit
+2. Open the project in OpenCode or VS Code
+3. Run:
 
 ```bash
 /bootstrap
 ```
 
-4. Puis :
+4. Then:
 
 ```bash
 /plan-change JIRA-123
@@ -209,48 +210,48 @@ Adapter VS Code/GitHub Copilot:
 
 ---
 
-## 🧠 Ce que ça change concrètement
+## 🧠 What Changes in Practice
 
-Avant :
-- Développement manuel
-- Prompts ad hoc
-- Résultats incohérents
+Before:
+- Manual development
+- Ad hoc prompts
+- Inconsistent results
 
-Après :
-- Workflow structuré
-- Agents spécialisés
-- Outputs standardisés
-- Gouvernance intégrée
-
----
-
-# 🔐 Gouvernance
-
-- permissions agents  
-- contrôle des effets de bord  
-- validation avant commit / PR  
-- auditabilité  
+After:
+- Structured workflow
+- Specialized agents
+- Standardized outputs
+- Built-in governance
 
 ---
 
+# 🔐 Governance
 
-## 🏢 Scalabilité
-
-Samourai Devkit permet :
-
-- Standardisation multi-équipes
-- Réutilisation des patterns
-- Accélération du delivery
-- Réduction des erreurs humaines
+- Agent permissions
+- Side-effect control
+- Validation before commit / PR
+- Auditability
 
 ---
 
 
+## 🏢 Scalability
 
-# 📘 Démarrage rapide (documentation officielle)
+Samourai Devkit enables:
 
-1. Lire : [docs/guide-utilisateur-fr.md](docs/guide-utilisateur-fr.md)  
-2. Lire : [core/governance/conventions/onboarding-existing-project.md](core/governance/conventions/onboarding-existing-project.md)  
-3. Lire : [core/governance/conventions/change-lifecycle.md](core/governance/conventions/change-lifecycle.md)  
-4. Consulter : [core/templates/README.md](core/templates/README.md)  
-5. Installer puis lancer /bootstrap  
+- Multi-team standardization
+- Pattern reuse
+- Accelerated delivery
+- Reduction of human errors
+
+---
+
+
+
+# 📘 Getting Started (official documentation)
+
+1. Read: [docs/guide-utilisateur-fr.md](docs/guide-utilisateur-fr.md)
+2. Read: [core/governance/conventions/onboarding-existing-project.md](core/governance/conventions/onboarding-existing-project.md)
+3. Read: [core/governance/conventions/change-lifecycle.md](core/governance/conventions/change-lifecycle.md)
+4. Refer to: [core/templates/README.md](core/templates/README.md)
+5. Install, then run /bootstrap
