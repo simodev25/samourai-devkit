@@ -1045,7 +1045,7 @@ print_next_steps() {
   fi
 
   printf '\n'
-  printf 'User guide: %s/docs/guide-utilisateur-fr.md\n' "${SOURCE_DIR}"
+  printf 'User guide: %s/docs/user-guide.md\n' "${SOURCE_DIR}"
 }
 
 install_opencode() {
