@@ -13,6 +13,24 @@ When you have multiple unrelated failures (different test files, different subsy
 
 **Core principle:** Dispatch one agent per independent problem domain. Let them work concurrently.
 
+## Inputs
+
+- A set of issues/failures to investigate or fix
+- Scope boundaries for each independent domain
+- Constraints per domain (files, components, or behaviors to avoid changing)
+- Expected deliverables from each agent run
+
+## Outputs
+
+- Parallel agent task dispatches with isolated scopes
+- Per-domain summaries of root cause, changes, and validation status
+- Integrated decision on whether fixes can be merged safely
+
+## Output Format
+
+- Domain-by-domain summary including: scope, root cause, files changed, and verification
+- Consolidated integration note indicating conflicts (or no conflicts) and next action
+
 ## When to Use
 
 ```dot
@@ -180,3 +198,10 @@ From debugging session (2025-10-03):
 - All investigations completed concurrently
 - All fixes integrated successfully
 - Zero conflicts between agent changes
+
+## Acceptance Criteria
+
+- Independent domains were explicitly identified before dispatch
+- Each agent prompt contained focused scope, constraints, and expected return format
+- Parallel execution was only used for tasks without shared-state dependencies
+- Returned results were reviewed and integrated with conflict checks and verification

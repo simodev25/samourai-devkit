@@ -11,6 +11,24 @@ Claiming work is complete without verification is dishonesty, not efficiency.
 
 **Core principle:** Evidence before claims, always.
 
+## Inputs
+
+- The claim being made (tests pass, build succeeds, bug fixed, task complete)
+- The authoritative verification command(s) for that claim
+- Fresh command output including exit code and failure counts
+- Relevant requirement checklist or completion criteria
+
+## Outputs
+
+- Verified status statement grounded in current evidence
+- Explicit failure report when evidence does not support success
+- Traceable verification record (commands run + observed results)
+
+## Output Format
+
+- Claim-to-evidence mapping: claim, command executed, key output, final status
+- If failed: concise blocker statement and required next action
+
 **Violating the letter of this rule is violating the spirit of this rule.**
 
 ## The Iron Law
@@ -137,3 +155,10 @@ From 24 failure memories:
 Run the command. Read the output. THEN claim the result.
 
 This is non-negotiable.
+
+## Acceptance Criteria
+
+- Every success/completion claim is preceded by fresh verification in the same flow
+- Verification uses full authoritative commands, not partial or proxy checks
+- Reported status matches actual output (including failures or skips)
+- Evidence is explicit enough for another reviewer to independently confirm the claim

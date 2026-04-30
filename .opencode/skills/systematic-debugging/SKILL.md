@@ -11,6 +11,24 @@ Random fixes waste time and create new bugs. Quick patches mask underlying issue
 
 **Core principle:** ALWAYS find root cause before attempting fixes. Symptom fixes are failure.
 
+## Inputs
+
+- Reproducible failure signal (error, failing test, unexpected behavior)
+- Execution context (environment, recent changes, affected components)
+- Available logs, traces, and diagnostic outputs
+- Constraints for safe experimentation during investigation
+
+## Outputs
+
+- Root-cause hypothesis validated (or rejected) with evidence
+- Minimal, targeted fix tied to the identified root cause
+- Verification artifacts proving issue resolution and no regression
+
+## Output Format
+
+- Investigation log by phase: evidence collected, hypotheses tested, outcomes
+- Final resolution summary: root cause, fix applied, verification command/results
+
 **Violating the letter of this process is violating the spirit of debugging.**
 
 ## The Iron Law
@@ -294,3 +312,10 @@ From debugging sessions:
 - Random fixes approach: 2-3 hours of thrashing
 - First-time fix rate: 95% vs 40%
 - New bugs introduced: Near zero vs common
+
+## Acceptance Criteria
+
+- Root-cause investigation phases were completed before any fix was proposed
+- At least one explicit hypothesis was tested with minimal-change validation
+- Final fix addresses the identified root cause (not only symptoms)
+- Resolution includes reproducible verification evidence and regression checks

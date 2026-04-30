@@ -9,6 +9,26 @@ Help turn ideas into fully formed designs and specs through natural collaborativ
 
 Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design and get user approval.
 
+## Inputs
+
+- User idea, request, or problem statement
+- Existing project context (files, docs, recent commits)
+- Constraints, goals, and success criteria gathered through clarifying questions
+- Relevant stakeholder preferences (scope, complexity, output location)
+
+## Outputs
+
+- A validated design direction with clear architecture and trade-off rationale
+- A written design document in the agreed location
+- Explicit user approval to move from design to planning
+
+## Acceptance Criteria
+
+- Clarifying questions were asked one at a time until scope and constraints were clear
+- 2-3 approaches with trade-offs were presented and a recommendation was given
+- Design was presented incrementally and user-approved before implementation planning
+- Spec document was written, self-reviewed, and confirmed by the user before transition
+
 <HARD-GATE>
 Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have presented a design and the user has approved it. This applies to EVERY project regardless of perceived simplicity.
 </HARD-GATE>

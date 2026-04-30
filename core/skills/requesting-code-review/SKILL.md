@@ -9,6 +9,24 @@ Dispatch superpowers:code-reviewer subagent to catch issues before they cascade.
 
 **Core principle:** Review early, review often.
 
+## Inputs
+
+- Scope of recently completed work to review
+- Requirements/spec/plan context defining expected behavior
+- Comparison range for review (`BASE_SHA` and `HEAD_SHA`)
+- Any known risk areas to prioritize during review
+
+## Outputs
+
+- A dispatched code-reviewer request with complete, focused context
+- Structured review findings categorized by severity
+- Action list for fixes, follow-ups, or justified pushback
+
+## Output Format
+
+- Review request payload including implementation summary, requirements, and SHA range
+- Review response summary grouped by Critical / Important / Minor with disposition
+
 ## When to Request Review
 
 **Mandatory:**
@@ -103,3 +121,10 @@ You: [Fix progress indicators]
 - Request clarification
 
 See template at: requesting-code-review/code-reviewer.md
+
+## Acceptance Criteria
+
+- Review was requested at a required checkpoint (task/feature/pre-merge) or justified optional point
+- Request included explicit scope, requirements context, and correct commit range
+- Returned findings were triaged by severity and acted on before proceeding
+- Any disagreement with feedback is documented with concrete technical evidence

@@ -11,6 +11,13 @@ Orchestre le pipeline git complet (review → tests → commit → PR) avec chec
 Ne jamais exécuter d'opérations git (commit, push, PR) sans checkpoint utilisateur explicite préalable. Chaque phase produit un fichier de sortie avant de passer à la suivante.
 </HARD-GATE>
 
+## Inputs
+
+- État git courant (branche, diff, historique récent)
+- Résultats de review et de tests nécessaires aux checkpoints
+- Convention de commit/branche applicable au repo
+- Validation explicite utilisateur à chaque checkpoint bloquant
+
 ## Activation dans Samourai
 
 Ce skill est activé automatiquement lors de :
@@ -195,3 +202,10 @@ Session git-workflow trouvée (phase: X)
 1. Reprendre depuis la phase X
 2. Recommencer depuis le début
 ```
+
+## Acceptance Criteria
+
+- Les 5 phases sont exécutées dans l'ordre strict sans saut ni fusion
+- Chaque phase écrit son artefact dans `.git-workflow/` avant la suivante
+- Aucun commit/push/PR n'est exécuté sans validation utilisateur explicite
+- Le commit respecte Conventional Commits et la PR contient les sections attendues
