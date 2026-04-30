@@ -24,6 +24,10 @@ agents:
       - doc-syncer
       - committer
       - pr-manager
+      - gap-analysis
+      - verdict
+      - refactor
+      - jira-analysis
 
   spec-writer:
     may_write:
@@ -91,3 +95,27 @@ agents:
     may_execute_commands: true
     may_commit: false
     may_open_pr: true
+
+  gap-analysis:
+    may_write:
+      - ".samourai/docai/changes/**/gap-analysis-report.md"
+    may_execute_commands: false
+    may_commit: false
+
+  verdict:
+    may_write:
+      - ".samourai/docai/changes/**/verdict-report.md"
+    may_execute_commands: true
+    may_commit: false
+
+  refactor:
+    may_write:
+      - "**"
+    may_execute_commands: true
+    may_commit: false
+
+  jira-analysis:
+    may_write:
+      - ".samourai/docai/changes/**/ticket-analysis-report.md"
+    may_execute_commands: false
+    may_commit: false
