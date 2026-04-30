@@ -43,14 +43,17 @@ Samourai Devkit provides:
 
 ## 🔁 Standard Workflow
 
-1. Scoping → `/plan-change`
-2. Specification → `/write-spec`
-3. Test design → `/write-test-plan`
-4. Implementation → `/run-plan`
-5. Review → `/review`
-6. Verification → `/check`
-7. Documentation → `/sync-docs`
-8. Delivery → `/commit` → `/pr`
+1. Analysis → `/analyze-user-stories`
+2. Scoping → `/plan-change`
+3. Specification → `/write-spec`
+4. Test design → `/write-test-plan`
+5. Implementation → `/run-plan`
+6. Gap analysis → `/gap-analysis`
+7. Review → `/review`
+8. Verification → `/check`
+9. Verdict → `/verdict`
+10. Documentation → `/sync-docs`
+11. Delivery → `/commit` → `/pr`
 
 ---
 

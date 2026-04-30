@@ -397,13 +397,17 @@ small batches to avoid generic or unverified skills.
 A change tracked by Samourai generally follows this order:
 
 ```text
+/analyze-user-stories <ref>
 /plan-change <ref>
+/extract-us-from-doc
 /write-spec <ref>
 /write-test-plan <ref>
 /write-plan <ref>
 /run-plan <ref>
+/gap-analysis <ref>
 /review <ref>
 /check
+/verdict <ref>
 /sync-docs <ref>
 /commit
 /pr
@@ -412,13 +416,17 @@ A change tracked by Samourai generally follows this order:
 For a GitHub issue:
 
 ```text
+/analyze-user-stories GH-123
 /plan-change GH-123
+/extract-us-from-doc
 /write-spec GH-123
 /write-test-plan GH-123
 /write-plan GH-123
 /run-plan GH-123
+/gap-analysis GH-123
 /review GH-123
 /check
+/verdict GH-123
 /sync-docs GH-123
 /commit
 /pr
@@ -466,6 +474,10 @@ prevent an agent from modifying code, documentation, or Git outside its scope.
 | `image-generator` | Generates images if the image tool is installed and configured. |
 | `image-reviewer` | Analyzes screenshots, images, and visual outputs. |
 | `toolsmith` | Evolves Samourai agents, commands, or skills. |
+| `gap-analysis` | Compares spec, plan, tests, and implementation to identify lifecycle coverage gaps. |
+| `verdict` | Produces a GO/NO-GO readiness verdict based on quality and traceability evidence. |
+| `refactor` | Plans and executes safe refactoring while preserving behavior and validating with tests. |
+| `jira-analysis` | Analyzes tickets/user stories for completeness and extracts structured requirements. |
 
 Typical usage:
 
@@ -514,6 +526,26 @@ Practical rule:
 | `/git-workflow <target-branch> [flags]` | Drive the complete Git flow with user checkpoints. | Flags: `--skip-tests`, `--draft-pr`, `--no-push`, `--conventional`, `--dry-run`. Use at end of delivery for a single controlled review, test, commit, push, and PR flow. |
 | `/generate-project-skills [directives]` | Generate project-specific skills. | Directives: `dry run`, `preview only`, `refresh`, `max=1..3`, `domain=<name>`, `focus=run,test,architecture,build,review,debug,migration,ci`. |
 | `/test-api-e2e [fast/all/target] [--dry-run]` | Run backend/API E2E tests configured in the repository. | Add only if the repository exposes an API E2E workflow. Fails with `NEEDS_INPUT` if no command is detected. |
+| `/analyze-user-stories <ref>` | Analyze user stories for completeness and delivery readiness. | Use before specification to validate requirements and identify missing acceptance details. |
+| `/extract-us-from-doc` | Extract structured user stories from business documentation. | Use when requirements are in prose and need normalized stories before planning/specification. |
+| `/gap-analysis <ref>` | Analyze gaps across spec, plan, tests, and code. | Use after implementation and before review/final validation. |
+| `/verdict <ref>` | Produce a GO/NO-GO readiness verdict for a change. | Use after checks/review as the final decision gate before PR creation. |
+
+## Available Skills
+
+The following skill packs are available to support the new analysis and delivery workflow:
+
+| Skill | Purpose |
+|-------|---------|
+| `user-story-analysis` | Analyze user stories for quality, completeness, and implementation readiness. |
+| `us-from-document` | Convert business documents into structured user stories and acceptance criteria. |
+| `spec-generation` | Accelerate specification drafting from validated requirements. |
+| `test-plan-generation` | Build traceable test plans aligned with acceptance criteria. |
+| `code-analysis` | Analyze code structure, quality signals, and implementation consistency. |
+| `gap-analysis` | Compare lifecycle artifacts to detect traceability and coverage gaps. |
+| `verdict-decision` | Produce evidence-based GO/NO-GO readiness verdicts. |
+| `refactoring` | Guide safe, incremental refactoring with behavior-preserving checks. |
+| `documentation-generation` | Generate or update documentation artifacts from implementation evidence. |
 
 When in doubt, start with:
 

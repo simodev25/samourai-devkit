@@ -68,6 +68,10 @@ Use these when you want to trigger a specific step in the process.
 | `/bootstrap`             | AI-guided project setup for Samourai adoption.                    | When onboarding a new project to Samourai.     |
 | `/check`                 | Runs quality gates and summarizes logs to files.              | When you need clean, shareable results.    |
 | `/check-fix`             | Runs quality gates and auto-fixes failures.                   | When you want automatic remediation.       |
+| `/analyze-user-stories <ref>` | Analyzes user stories for completeness and development readiness. | Before `/write-spec`, to validate requirements. |
+| `/extract-us-from-doc` | Extracts structured user stories from business documents. | When converting prose requirements to stories. |
+| `/gap-analysis <ref>` | Analyzes gaps between development artifacts (spec, plan, tests, code). | After implementation, before review. |
+| `/verdict <ref>` | Evaluates change readiness and produces a GO/NO-GO verdict. | Final readiness check before PR creation. |
 
 ### 2.2 Agents (Autonomous Roles)
 
@@ -94,6 +98,10 @@ Use these when you need intelligent analysis or orchestration.
 | `@toolsmith`      | **Toolsmith**. Creates and tunes OpenCode agents/commands/skills.                          | Use to create or improve tooling.               |
 | `@bootstrapper`   | **Bootstrapper**. Automates Samourai adoption for existing projects.                           | Use when onboarding a new project to Samourai.      |
 | `@external-researcher` | **Researcher**. Researches external sources via MCP (context7, deepwiki, perplexity). | Use when you need external technical research.  |
+| `@gap-analysis` | **Gap Analyzer**. Compares artifacts across the dev lifecycle for coverage gaps. | Use to verify traceability between spec, plan, tests, and code. |
+| `@verdict` | **Verdict Evaluator**. Produces GO/NO-GO readiness verdicts based on quality gates. | Use as final readiness check before merge. |
+| `@refactor` | **Refactorer**. Plans and executes safe, test-verified code refactoring. | Use for code quality improvements without behavior changes. |
+| `@jira-analysis` | **Ticket Analyzer**. Analyzes tickets for completeness and extracts structured requirements. | Use before specification to validate requirements. |
 
 ---
 
